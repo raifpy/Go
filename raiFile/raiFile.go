@@ -5,8 +5,8 @@ import (
 	"os"
 )
 
-//readFile , return file's value (string)
-func readFile(fileName string) (string, error) { // CleanCode kurallarına uyalım dost
+//ReadFile , return file's value (string)
+func ReadFile(fileName string) (string, error) { // CleanCode kurallarına uyalım dost
 	icerik, err := ioutil.ReadFile(fileName)
 	if !(err == nil) {
 		return "", err
@@ -14,8 +14,8 @@ func readFile(fileName string) (string, error) { // CleanCode kurallarına uyal�
 	return string(icerik), nil
 }
 
-//writeFile write string in file (0) *
-func writeFile(fileName string, text string) error {
+//WriteFile write string in file (0) *
+func WriteFile(fileName string, text string) error {
 	dosya, err := os.Create(fileName)
 	defer dosya.Close()
 	if !(err == nil) {
@@ -28,8 +28,8 @@ func writeFile(fileName string, text string) error {
 	return nil
 }
 
-//writeFileLines write string in file but lines :D *
-func writeFileLines(fileName, text string) error {
+//WriteFileLines write string in file but lines :D *
+func WriteFileLines(fileName, text string) error {
 	icerik, err := os.OpenFile(fileName, os.O_WRONLY|os.O_APPEND, os.ModePerm) // dosya adı - string , flag - int , perm - os.FileMode | fileName , flag , perm
 	defer icerik.Close()
 	if !(err == nil) {
